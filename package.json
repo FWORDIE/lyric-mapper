@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@douganderson444/panzoom-node": "^1.2.4",
+		"@sveltejs/adapter-netlify": "^4.4.0",
 		"@sveltejs/adapter-vercel": "^5.5.2",
 		"@viz-js/lang-dot": "^1.0.4",
 		"@viz-js/viz": "^3.11.0",
