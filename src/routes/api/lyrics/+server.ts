@@ -26,7 +26,7 @@ export const GET = async (event) => {
 
         // Pick first one
         const firstSong = searches[0];
-
+        console.log('first song:', firstSong)
         if (firstSong) {
             console.log("About the Song:\n", firstSong, "\n");
             let songData = {
@@ -38,13 +38,13 @@ export const GET = async (event) => {
             };
             returnData = songData;
             // // Ok lets get the lyrics
-            console.log(returnData);
+            console.log('song data',songData);
         } else {
             returnData = {
                 msg: "Could not find, sorry",
             };
         }
-        console.log(returnData);
+        console.log('return data',returnData);
 
         return new Response(JSON.stringify(returnData), {
             headers: {
