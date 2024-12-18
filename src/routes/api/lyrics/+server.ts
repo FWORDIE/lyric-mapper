@@ -21,7 +21,12 @@ export const GET = async (event) => {
             title = event.url.searchParams.get("title") as string;
         }
         console.log(`${artist} - ${title}`)
-        const searches = await Client.songs.search(`${artist} - ${title}`);
+        try{
+            const searches = await Client.songs.search(`${artist} - ${title}`);
+
+        }catch(e){
+            console.log(e)
+        }
         let returnData = {};
 
         // Pick first one
