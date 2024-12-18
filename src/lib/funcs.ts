@@ -11,6 +11,7 @@ export const getLyrics = async (title: string, artist: string, top: boolean) => 
     );
 
     let object = await respone.json();
+    console.log(object)
     if (object) {
         return object;
     }
