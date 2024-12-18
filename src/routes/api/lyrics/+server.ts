@@ -44,7 +44,7 @@ export const GET = async (event) => {
                 msg: "Could not find, sorry",
             };
         }
-
+        console.log(returnData);
         return json(returnData);
     } catch (e: any) {
         console.error("Error in GET function:", e);
