@@ -99,6 +99,7 @@
         --background: {style().back};
     "
 >
+test
     <div
         class="SVGArea"
         bind:this={svgArea}
