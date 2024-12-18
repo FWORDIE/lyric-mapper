@@ -1,4 +1,4 @@
-import { error, json } from "@sveltejs/kit";
+import { json } from "@sveltejs/kit";
 import Genius from "genius-lyrics";
 import Vibrant from "node-vibrant";
 // @ts-ignore
@@ -44,8 +44,12 @@ export const GET = async (event) => {
                 msg: "Could not find, sorry",
             };
         }
-        console.log(returnData);
-        return json(returnData);
+        return new Response(JSON.stringify(returnData), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
     } catch (e: any) {
         console.error("Error in GET function:", e);
         return json({ error: e.message || "Unknown Error" }, { status: 500 });
