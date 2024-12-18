@@ -66,3 +66,5 @@ const splitWords = (string: string) => {
     // console.log(splitWords);
     return splitWordsArray.filter((n) => n);
 };
+
+
