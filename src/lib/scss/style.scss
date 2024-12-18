@@ -1,0 +1,31 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+}
+body {
+    max-height: 100dvh;
+    max-width: 100dvw;
+    overflow: hidden;
+}
+svg{
+    polygon{
+        fill:var(--background) !important;
+    }
+
+    .graph{
+        polygon{
+            stroke:none !important;
+        }
+        g{
+            path,ellipse,polygon{
+                stroke: var(--text) !important;
+            }
+            text{
+                fill:  var(--text) !important;
+            }
+      
+        }
+    }
+}
