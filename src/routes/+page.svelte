@@ -159,13 +159,7 @@
 </div>
 
 <style lang="scss">
-    .blank {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        pointer-events: none;
-    }
+
     .container {
         position: absolute;
         top: 0;
