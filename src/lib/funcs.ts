@@ -7,11 +7,16 @@ export const getLyrics = async (title: string, artist: string, top: boolean) => 
                 title: title,
                 artist: artist,
                 top: top.toString(),
-            }).toString()
+            }).toString(),
+        {
+            headers: {
+                Accept: "application/json",
+            },
+        }
     );
 
     let object = await respone.json();
-    console.log(object)
+    console.log(object);
     if (object) {
         return object;
     }
