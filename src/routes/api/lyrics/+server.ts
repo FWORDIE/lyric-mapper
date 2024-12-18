@@ -38,7 +38,7 @@ export const GET = async (event) => {
             };
             returnData = songData;
             // // Ok lets get the lyrics
-            // console.log(songData);
+            console.log(songData);
         } else {
             returnData = {
                 msg: "Could not find, sorry",
@@ -55,6 +55,8 @@ export const GET = async (event) => {
 const top10Func = async () => {
     let top10 = (await getChartAsPromise()) as any[];
     let song = top10[Math.floor(Math.random() * top10.length)];
+    console.log(song);
+
     return song;
 };
 function getChartAsPromise() {
