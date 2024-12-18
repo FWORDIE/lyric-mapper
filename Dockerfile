@@ -5,14 +5,14 @@ ARG BUILD_VERSION
 ARG BUILD_REVISION
 WORKDIR /app
 COPY . .
-RUN npm install 
-RUN npm run build
+RUN pnpm i install 
+RUN pnpm run build
 
 FROM node:20-alpine as build-runtime
 
 WORKDIR /app
 COPY package.json ./
-RUN npm install 
+RUN pnpm i 
 
 FROM node:20-alpine as final
 ENV NODE_ENV production
