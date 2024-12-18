@@ -38,12 +38,14 @@ export const GET = async (event) => {
             };
             returnData = songData;
             // // Ok lets get the lyrics
-            console.log(songData);
+            console.log(returnData);
         } else {
             returnData = {
                 msg: "Could not find, sorry",
             };
         }
+        console.log(returnData);
+
         return new Response(JSON.stringify(returnData), {
             headers: {
                 'Content-Type': 'application/json'
