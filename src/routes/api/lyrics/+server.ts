@@ -3,12 +3,13 @@ import Genius from "genius-lyrics";
 import Vibrant from "node-vibrant";
 // @ts-ignore
 import { getChart } from "billboard-top-100";
+import { KEY } from "$env/static/private";
 const ratioTarget = 0.22222;
 const textColour = { r: 14, g: 13, b: 13 };
 
 export const GET = async (event) => {
     try {
-        const Client = new Genius.Client('LOh81OLZF5xkQ9i-KAoUeunVSLwAjP0oeLZDEnpOX0J96Uy_fXMLOKxlpHGRqK2p');
+        const Client = new Genius.Client(KEY);
         const top = event.url.searchParams.get("top");
         let artist = "";
         let title = "";
