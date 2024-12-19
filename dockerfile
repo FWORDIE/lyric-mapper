@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json .
 RUN npm i --force
 COPY . .
+ARG KEY=${KEY}
 RUN npm run build
 RUN npm prune --production --force
 

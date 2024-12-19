@@ -1,6 +1,8 @@
 import { json } from "@sveltejs/kit";
 import Genius from "genius-lyrics";
 import Vibrant from "node-vibrant";
+import * as cheerio from "cheerio";
+
 // @ts-ignore
 import { getChart } from "billboard-top-100";
 import { KEY } from "$env/static/private";
@@ -21,34 +23,48 @@ export const GET = async (event) => {
             artist = event.url.searchParams.get("artist") as string;
             title = event.url.searchParams.get("title") as string;
         }
-        console.log(`${artist} - ${title}`);
+        // console.log(`${artist} - ${title}`);
 
         const searches = await Client.songs.search(`${artist} - ${title}`);
 
-        console.log(searches);
+        // console.log(searches);
         let returnData = {};
 
         // Pick first one
         const firstSong = searches[0];
-        console.log("first song:", firstSong);
+        // console.log("first song:", firstSong);
+
+        // console.log('lyrics', lyrics)
         if (firstSong) {
-            console.log("About the Song:\n", firstSong, "\n");
+            // console.log("About the Song:\n", firstSong, "\n");
+            let html = await fetch(firstSong.url);
+            const body = await html.text();
+            const $ = cheerio.load(body);
+
+            let string = $("[data-lyrics-container='true']")
+                .contents()
+                .map(function () {
+                    return this.type === "text" ? $(this).text() + " " : "";
+                })
+                .get()
+                .join("");
+
             let songData = {
                 title: firstSong.title,
                 artist: firstSong.artist.name,
-                lyrics: await firstSong.lyrics(),
+                lyrics: string,
                 colour: await getPallete(firstSong.image),
                 error: false,
             };
             returnData = songData;
             // // Ok lets get the lyrics
-            console.log("song data", songData);
+            // console.log("song data", songData);
         } else {
             returnData = {
                 msg: "Could not find, sorry",
             };
         }
-        console.log("return data", returnData);
+        // console.log("return data", returnData);
 
         return new Response(JSON.stringify(returnData), {
             headers: {
@@ -64,7 +80,7 @@ export const GET = async (event) => {
 const top10Func = async () => {
     let top10 = (await getChartAsPromise()) as any[];
     let song = top10[Math.floor(Math.random() * top10.length)];
-    console.log(song);
+    // console.log(song);
 
     return song;
 };

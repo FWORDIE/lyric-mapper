@@ -26,6 +26,9 @@ importers:
       billboard-top-100:
         specifier: ^2.6.5
         version: 2.6.5
+      cheerio:
+        specifier: ^1.0.0
+        version: 1.0.0
       colorthief:
         specifier: ^2.6.0
         version: 2.6.0

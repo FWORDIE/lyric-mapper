@@ -27,6 +27,7 @@
 		"@viz-js/lang-dot": "^1.0.4",
 		"@viz-js/viz": "^3.11.0",
 		"billboard-top-100": "^2.6.5",
+		"cheerio": "^1.0.0",
 		"colorthief": "^2.6.0",
 		"genius-lyrics": "^4.4.7",
 		"get-image-colors": "^4.0.1",
