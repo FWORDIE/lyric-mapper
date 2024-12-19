@@ -4,7 +4,7 @@ COPY package*.json .
 RUN npm i --force
 COPY . .
 RUN npm run build
-RUN npm prune --production
+RUN npm prune --production --force
 
 FROM node:22
 WORKDIR /app
