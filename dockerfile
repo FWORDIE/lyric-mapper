@@ -1,7 +1,7 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json .
-RUN npm i --legacy-peer-deps
+RUN npm i --force
 COPY . .
 RUN npm run build
 RUN npm prune --production
