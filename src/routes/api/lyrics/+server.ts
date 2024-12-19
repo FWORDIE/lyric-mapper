@@ -38,9 +38,11 @@ export const GET = async (event) => {
         if (firstSong) {
             // console.log("About the Song:\n", firstSong, "\n");
             let html = await fetch(firstSong.url);
+            console.log('firstSong.ur:', firstSong.url)
+
             const body = await html.text();
             const $ = cheerio.load(body);
-
+            console.log('body:', body)
             let string = $("[data-lyrics-container='true']")
                 .contents()
                 .map(function () {
@@ -48,6 +50,8 @@ export const GET = async (event) => {
                 })
                 .get()
                 .join("");
+                console.log('string:', string)
+
 
             let songData = {
                 title: firstSong.title,
