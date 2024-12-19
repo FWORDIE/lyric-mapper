@@ -8,7 +8,7 @@ const textColour = { r: 14, g: 13, b: 13 };
 
 export const GET = async (event) => {
     try {
-        const Client = new Genius.Client();
+        const Client = new Genius.Client('LOh81OLZF5xkQ9i-KAoUeunVSLwAjP0oeLZDEnpOX0J96Uy_fXMLOKxlpHGRqK2p');
         const top = event.url.searchParams.get("top");
         let artist = "";
         let title = "";
